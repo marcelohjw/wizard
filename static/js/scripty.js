@@ -3,6 +3,14 @@ $(document).ready(function(){
 
     $(document).on("submit", "#register-form", function(e) {
         e.preventDefault();
-        console.log("Submitted Wizard");
+        var form = $('#register-form').serialize();
+        $.ajax({
+            url: '/postregstration',
+            type: 'POST',
+            data: form,
+            success: function(response) {
+                console.log(response);
+            }
+        })
     });
 });
